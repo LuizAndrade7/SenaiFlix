@@ -1,0 +1,192 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 21-Jun-2024 às 02:02
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 8.1.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Banco de dados: `senaiflix_luiz`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `assinaturas`
+--
+
+CREATE TABLE `assinaturas` (
+  `id_assinatura` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `plano` varchar(50) NOT NULL,
+  `data_inicio` date NOT NULL,
+  `data_fim` date NOT NULL,
+  `data_cadastro` datetime NOT NULL,
+  `data_atualizacao` datetime NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `assinaturas`
+--
+
+INSERT INTO `assinaturas` (`id_assinatura`, `id_cliente`, `plano`, `data_inicio`, `data_fim`, `data_cadastro`, `data_atualizacao`, `status`) VALUES
+(1, 8, 'anual', '2024-06-19', '2025-06-19', '2024-06-20 01:08:44', '2024-06-20 01:08:44', 1),
+(2, 8, 'bimestral', '2024-06-19', '2024-12-19', '2024-06-20 01:25:46', '2024-06-20 01:25:46', 1),
+(3, 20, '', '2024-06-19', '2024-12-19', '2024-06-20 23:41:34', '2024-06-20 23:41:34', 1),
+(4, 8, '', '2024-06-19', '2024-12-19', '2024-06-20 23:41:39', '2024-06-20 23:41:39', 1),
+(5, 10, '', '2024-06-19', '2024-12-19', '2024-06-20 23:46:29', '2024-06-20 23:46:29', 1),
+(6, 5, '', '2024-06-19', '2024-12-19', '2024-06-20 23:46:34', '2024-06-20 23:46:34', 1),
+(7, 8, '', '2024-06-19', '2024-12-19', '2024-06-20 23:51:44', '2024-06-20 23:51:44', 1),
+(8, 20, '', '2024-06-19', '2024-12-19', '2024-06-20 23:51:48', '2024-06-20 23:51:48', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `id_cliente` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `cpf` varchar(11) NOT NULL,
+  `endereco` varchar(255) NOT NULL,
+  `bairro` varchar(100) NOT NULL,
+  `cidade` varchar(100) NOT NULL,
+  `estado` varchar(2) NOT NULL,
+  `cep` varchar(8) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `telefone` varchar(15) NOT NULL,
+  `data_cadastro` datetime NOT NULL,
+  `data_atualizacao` datetime NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `clientes`
+--
+
+INSERT INTO `clientes` (`id_cliente`, `nome`, `cpf`, `endereco`, `bairro`, `cidade`, `estado`, `cep`, `email`, `telefone`, `data_cadastro`, `data_atualizacao`, `status`) VALUES
+(3, 'asdasda', '12312546996', 'asdasgasgsdfhg', 'SDAGSDFHDYKDGH', 'dfasdgafg', 'AM', '21312564', 'sdfasd@apsok.com', '', '2024-06-14 01:30:35', '2024-06-14 01:30:35', 1),
+(4, '', '13123434645', '', '', '', 'AC', '12312312', '', '', '2024-06-14 02:59:52', '2024-06-14 02:59:52', 1),
+(5, '', '23423445345', '', '', '', 'AC', '11111111', '', '', '2024-06-14 02:14:19', '2024-06-19 03:19:35', 1),
+(6, '', '23423445347', '', '', '', 'AC', '', '', '', '2024-06-14 02:15:24', '2024-06-14 02:15:24', 1),
+(7, '', '23423523541', '', '', '', 'AC', '', '', '', '2024-06-14 01:40:37', '2024-06-14 01:40:37', 1),
+(8, 'Luiz', '32132132132', 'aspkdpo', 'aposkdop', 'aspaposdkpoaskd', 'AC', '31231231', '173173@asdasjd.com', '', '2024-06-14 01:05:43', '2024-06-14 01:05:43', 1),
+(9, 'asdaspodaopsk', '32197945646', 'asdjaiosj', 'aiosdopaskd', 'oaisjdiaudyua', 'BA', '12391298', 'asoidjasio@gmail.com', '', '2024-06-14 01:31:03', '2024-06-14 01:31:03', 1),
+(10, '', '56498787787', '', '', '', 'AC', '', '', '', '2024-06-14 01:39:52', '2024-06-14 01:39:52', 1),
+(11, 'dasdasdas', '56734412312', 'asdasdsa', 'santa ines', 'bh', 'MT', '12356756', 'asopdk@yahoo.com', '', '2024-06-14 01:39:25', '2024-06-14 01:39:25', 1),
+(20, 'asdasd', '11111111111', 'asdasd', 'asdasasdas', 'asdasdasdasdas', 'RJ', '11111111', 'senai@senaimgaluno.com.br', '1111111111111', '2024-06-18 23:48:27', '2024-06-18 23:48:27', 1),
+(21, 'SasADFSDFSDF', '44444444444', 'SADASDASDA', 'ASDASDASD', 'ADASDASDASD', 'AC', '22222222', '1SEPOSKPOF@senai.mg', '1111111111111', '2024-06-18 23:52:42', '2024-06-19 03:15:03', 1),
+(22, 'SasADFSDFSDF', '77777777777', 'SADASDASDA', 'ASDASDASD', 'ADASDASDASD', 'RJ', '11111111', '1SEPOSKPOF@senai.mg', '1111111111111', '2024-06-18 23:55:33', '2024-06-18 23:55:33', 1),
+(24, 'SasADFSDFSDF', '77777777778', 'SADASDASDA', 'ASDASDASD', 'ADASDASDASD', 'RJ', '11111111', '1SEPOSKPOF@senai.mg', '1111111111111', '2024-06-18 23:56:27', '2024-06-18 23:56:27', 1),
+(25, 'SasADFSDFSDF', '77777777779', 'SADASDASDA', 'ASDASDASD', 'ADASDASDASD', 'RJ', '11111111', '1SEPOSKPOF@senai.mg', '1111111111111', '2024-06-18 23:58:03', '2024-06-18 23:58:03', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `filmes`
+--
+
+CREATE TABLE `filmes` (
+  `id_filme` int(11) NOT NULL,
+  `titulo` varchar(255) NOT NULL,
+  `descricao` text NOT NULL,
+  `ano_lancamento` year(4) NOT NULL,
+  `genero` varchar(100) NOT NULL,
+  `classificacao` varchar(10) NOT NULL,
+  `foto` varchar(255) DEFAULT NULL,
+  `data_cadastro` datetime NOT NULL,
+  `data_atualizacao` datetime NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `filmes`
+--
+
+INSERT INTO `filmes` (`id_filme`, `titulo`, `descricao`, `ano_lancamento`, `genero`, `classificacao`, `foto`, `data_cadastro`, `data_atualizacao`, `status`) VALUES
+(1, 'hdfgfdgsdfg', 'sdfgsdfgsdfgsdfgsdf', 0000, 'comedia', '10', '667358eb42732_homem_de_ferro.jpg', '2024-06-20 00:17:15', '2024-06-20 00:17:15', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id_usuario` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `data_cadastro` datetime NOT NULL,
+  `data_atualizacao` datetime NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `assinaturas`
+--
+ALTER TABLE `assinaturas`
+  ADD PRIMARY KEY (`id_assinatura`);
+
+--
+-- Índices para tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id_cliente`),
+  ADD UNIQUE KEY `cpf` (`cpf`);
+
+--
+-- Índices para tabela `filmes`
+--
+ALTER TABLE `filmes`
+  ADD PRIMARY KEY (`id_filme`);
+
+--
+-- Índices para tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD UNIQUE KEY `usuario` (`usuario`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `assinaturas`
+--
+ALTER TABLE `assinaturas`
+  MODIFY `id_assinatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de tabela `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT de tabela `filmes`
+--
+ALTER TABLE `filmes`
+  MODIFY `id_filme` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
